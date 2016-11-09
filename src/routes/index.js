@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { Router, Route, browserHistory } from 'react-router';
-import Main from '../components/Main';
+import { Router, Route, Redirect, browserHistory } from 'react-router';
+import Main from './components/Main';
+import Grid from './grid/components/Grid';
 
 const Routes = () => (
   <Router history={browserHistory}>
-    <Route path="/" component={Main}>
+    <Redirect from='/' to='/grid' />
+    <Route path='/' component={Main}>
+      <Route path='grid' component={Grid}/>
     </Route>
   </Router>   
 )
